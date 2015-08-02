@@ -1,2 +1,30 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
+<html>
+<head>
+<title> saying </title>
+</head>
+<div id="is_login">
+    <% if @user_id == nil %>
+        <%= button_to "新規作成", {}, :method => :post %>
+    <% else %>
+        <%= button_to "テスト", {}, :method => :post %>
+    <% end %>
+</div>
+<body>
+<div class="form-horizontal" role="form">
+<%= form_for Tweet.new do |f| %>
+    <%= f.text_field :title,size: "50x100" %>
+    <%= f.submit "test", size: "50x100" %>
+<% end %>
+</div>
+<% @tweets.reverse_each do |tweet| %>
+<div id="tweet">
+    <h3> <%= tweet.title %></h3>
+    <p><%= tweet.content %></p>
+    <p><%= tweet.count.to_s %>
+    <!-- <p><%= button_to "iin", :btn_id=> "plus", :id => tweet.id.to_i %></p> -->
+    <%= link_to "iin", {:btn_id=> "plus", :id => tweet.id.to_i}, :method => :post %>
+    <%= link_to "delete", {:btn_id=> "delete", :id => tweet.id.to_i}, :method => :post %>
+</div>
+<% end %>
+</body>
+</html>

@@ -1,25 +1,9 @@
 SimpleApp::Application.routes.draw do
-  root :to => "tweets#index"
-  post "/" => "tweets#count"
-  # post "/" => "tweets#index"
   get "tweets/index"
-  post "tweets/index" => "tweets#count"
-  # post "tweets/index"
   get "tweets/show"
   get "tweets/new"
-  post "tweets" => "tweets#create"
-  # post "count" => "tweets#create"
-
   get "users/index"
-  get "users/new"
-  post "users/new" => "users#new"
-  post "users" => "users#new"
-  get "users/show/:username" => "users#show"
   get "users/show"
-
-  # get "users/tweet/:username" => "tweets#create"
-  # get "users/tweet" => "tweets#create"
-  get "users/tweet/:id" => "tweets#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
