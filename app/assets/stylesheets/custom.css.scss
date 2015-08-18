@@ -1,0 +1,78 @@
+@import "bootstrap" ;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+  text-align: center ;
+  margin: 0 auto ;
+
+}
+
+body {
+  // padding-top: 60px;
+
+}
+
+p {
+  margin-top: -3px ;
+  margin-bottom: 5px ;
+}
+div {
+  
+}
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+#input{
+  // border-width: 1px 1px 1px 1px ;
+  // border-style: solid ;
+  // border-color: #DCDCDC ;
+  // // padding-left: 50px ;
+  // padding-right: 50px ;
+  margin-left: -122px ;
+  // margin-right: 0px ;
+  // margin-top: 20px ;
+
+}
+
+#input2{
+  // border-width: 1px 1px 1px 1px ;
+  // border-style: solid ;
+  // border-color: #DCDCDC ;
+  // // padding-left: 50px ;
+  // padding-right: 50px ;
+  // margin-left: -20px ;
+  // margin-right: 0px ;
+  // margin-top: 20px ;
+
+}
+
+#tweet{
+  // border: 1px #DCDCDC solid ;
+  border-width: 1px 1px 1px 1px ;
+  border-style: solid ;
+  border-color: #DCDCDC ;
+  // padding-left: 50px ;
+  padding-right: 50px ;
+  margin-left: 70px ;
+  margin-right: 70px ;
+  margin-top: 20px ;
+}
+
+#is_login{
+  margin-left: 600px ;
+}

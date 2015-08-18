@@ -3,11 +3,10 @@
 <title> saying </title>
 </head>
 <body>
-<br>
-<br>
+<!-- <div class="form&#45;horizontal" role="form"> -->
 <div class="form-inline" role="form">
 <%= form_for Tweet.new do |f| %>
-    <p id="input"><%= f.label :name %>
+    <p id="input"><%= f.label :contributor %>
     <%= f.text_field :contributor,:style =>"height:13px", :class => "span2" %>
     <!-- <p id="input2" class=""><%= f.text_field :title,:style=>"height:20px" %> -->
 
@@ -16,10 +15,8 @@
 <%= f.submit "投稿" %></p>
 <% end %>
  <p><%= link_to "新着順", '/tweets/index' %>
- <%= link_to "いいね順",'/tweets/popularity' %> </p>
+ <%= link_to "順",'/tweets/popularity' %> </p>
 </div>
-
-
 
 <% @tweets.reverse_each do |tweet| %>
 
@@ -28,7 +25,7 @@
     <p> <%= tweet.contributor %></p>
     <p><%= tweet.content %></p>
     <p><%= tweet.count.to_s %>
-    <p><%= tweet.created_at%></p>
+    <!-- <p><%= button_to "iin", :btn_id=> "plus", :id => tweet.id.to_i %></p> -->
     <%= link_to "いいね", {:btn_id=> "plus", :id => tweet.id.to_i}, :method => :post %>
     <%= link_to "delete", {:btn_id=> "delete", :id => tweet.id.to_i}, :method => :post %>
 </div>

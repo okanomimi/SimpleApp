@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802061403) do
+ActiveRecord::Schema.define(version: 20150817234933) do
 
   create_table "tweets", force: true do |t|
     t.string   "title"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150802061403) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "count"
+    t.string   "contributor"
+    t.string   "password_digest"
   end
 
   create_table "users", force: true do |t|
