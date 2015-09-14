@@ -1,14 +1,41 @@
 SimpleApp::Application.routes.draw do
-  root :to => "tweets#index"
-  post "/" => "tweets#count"
+  resources :my_threads
 
-  get "tweets/index"
+  resources :categories
+  # root :to => "tweets#index"
+  
+  # get "users/new"
+  # get "users/index"
+  # get "users/:id" => "users#show"
+  # get "users/:id"
+  # get "users/:id" => "users/show"
+  
+  # root :to => "tweets#index"
+  root :to => "categories#show_threads" #初期はスレッド一覧
+  get ":category_id/show_tweet/:thread_id" => "my_threads#show_tweets"
+  post ":category_id/show_tweet/:thread_id/:user_id" => "tweets#create"
+  get "/:id" => "tweets#index"
+
+  #after
+  get "categories/show_threads/:category_id" => "categories#show_threads"
+  get "my_threads/show_tweets/:id" => "tweets#index"
+  get "categories/show_threads/:category_id/show_tweet/:thread_id" => "my_threads#show_tweets"
+  get "categories/show_threads/:category_id/show_tweet/:thread_id/:user_id" => "my_threads#show_tweets"
+  post "categories/show_threads/:category_id/show_tweet/:thread_id/:user_id" => "tweets#create"
+
+  # before 
+  get "tweets/index/:id" => "tweets#index"
+  get "tweets/index/:category_id/:id" => "tweets#index"
   post "tweets/index" => "tweets#count"
   get "tweets/popularity"
   post "tweets/popularity" => "tweets#count2"
   get "tweets/new"
   post "tweets" => "tweets#create"
   
+  # get "categories_id/"  #そのカテゴリに属するスレッド一覧
+  # get ":categories_id/:my_threads_id"  #そのスレッドに属するTweet一覧
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

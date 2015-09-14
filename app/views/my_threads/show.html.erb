@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @my_thread.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @my_thread.category_id %>
+</p>
+
+<p>
+  <strong>Tweet:</strong>
+  <% @my_thread.tweets.each do |tweet| %>
+    <%= thread %>
+   <% end %>
+</p>
+
+<%= link_to 'Edit', edit_my_thread_path(@my_thread) %> |
+<%= link_to 'Back', my_threads_path %>

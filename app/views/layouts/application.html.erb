@@ -1,11 +1,33 @@
 <!DOCTYPE html>
+
 <html>
+<div class="btn-group" id="is_login">
+<% if @user_id == nil %> 
+    <%= link_to "新規登録","/users/new/",  :class => "btn" %>
+<% else %> 
+    <%= link_to "マイページ"+@user_id.to_s, '/users/'+@user_is.to_s,  :class => "btn" %>
+<% end %> 
+</div>
+
 <head>
   <title>SimpleApp</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<div id="sidenavi">
+      <div class="sidemenu">
+            カテゴリ一覧
+              <h4> <%= link_to "All", "/"%></h4>
+          <% @categories.each do |cate| %>
+              <h4> <%= link_to "#{cate.title}", "/categories/show_threads/#{cate.id}/#{@user_id}"%></h4>
+          <% end %>
+      </div>
+  </div>
+   
+   <!-- ここまでsidenavi -->
+
 <body>
 
 <%= yield %>

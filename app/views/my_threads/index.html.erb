@@ -1,0 +1,35 @@
+<h1>Listing my_threads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Tweet</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_threads.each do |my_thread| %>
+      <tr>
+        <td><%= my_thread.id %></td>
+        <td><%= my_thread.name %></td>
+        <td><% my_thread.tweets do |tweet| %></td>
+            <%= tweet %>
+        <% end %>
+        <td><%= my_thread.category_id %></td>
+        <td><%= my_thread.tweets %></td>
+        <td><%= link_to 'Show', my_thread %></td>
+        <td><%= link_to 'Edit', edit_my_thread_path(my_thread) %></td>
+        <td><%= link_to 'Destroy', my_thread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New My thread', new_my_thread_path %>

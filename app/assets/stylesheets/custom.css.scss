@@ -4,14 +4,17 @@
 
 html {
   overflow-y: scroll;
-  text-align: center ;
+  // text-align: center ;
   margin: 0 auto ;
 
 }
 
 body {
-  // padding-top: 60px;
+    overflow-y: scroll;
+  text-align: center ;
+  margin: 0 auto ;
 
+  // padding-top: 60px;
 }
 
 p {
@@ -68,11 +71,45 @@ textarea {
   border-color: #DCDCDC ;
   // padding-left: 50px ;
   padding-right: 50px ;
-  margin-left: 70px ;
-  margin-right: 70px ;
+  margin-left: 210px ;
+  margin-right: 10px ;
   margin-top: 20px ;
 }
 
 #is_login{
-  margin-left: 600px ;
+  margin-right:-700px ;
+  // margin-left: 100px ;
+}
+
+
+/*__ sidenavi _______________________*/
+ 
+#sidenavi{
+    height: 700px ;
+    border-width: 2px 2px 2px 2px ;
+    border-style: solid ;
+    float: left;
+    width: 200px ;
+    // border-color: #DCDCDC ;
+    border-color: #CCCCCC ;
+    // background-color: #9999CC ;
+}
+ 
+#title{
+    margin: 10px ;
+    background-color: #FFFFFF ;
+}
+ 
+.sidemenu ul{
+    margin: 0px ;
+    padding: 0px ;
+    list-style-type: none ;
+}
+ 
+.sidemenu ul li{
+    text-align: left ;
+    border-bottom-width: 1px ;
+    border-bottom-style: solid ;
+    border-bottom-color: #CCCCCC ;
+    height: 40px ;
 }

@@ -1,0 +1,32 @@
+<h1>Listing categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Tweet</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.title %></td>
+        <td><%= category.tweet_id %></td>
+        <% category.my_threads.each do |mythread| %>
+            <td><p><%= mythread.name %> </p></td>
+    <% end %>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>

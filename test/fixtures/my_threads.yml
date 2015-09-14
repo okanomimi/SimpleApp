@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  email: MyString
-  password: MyString
+  category_id: 1
   tweet_id: 1
 
 two:
   name: MyString
-  email: MyString
-  password: MyString
+  category_id: 1
   tweet_id: 1

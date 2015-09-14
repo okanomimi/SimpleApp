@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817234933) do
+ActiveRecord::Schema.define(version: 20150909071008) do
+
+  create_table "categories", force: true do |t|
+    t.string   "title"
+    t.integer  "tweet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "my_thread_id"
+  end
+
+  create_table "my_threads", force: true do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.integer  "tweet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tweets", force: true do |t|
     t.string   "title"
@@ -21,13 +37,16 @@ ActiveRecord::Schema.define(version: 20150817234933) do
     t.integer  "count"
     t.string   "contributor"
     t.string   "password_digest"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.integer  "my_thread_id"
   end
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "username"
-    t.string   "location"
-    t.text     "about"
+    t.string   "email"
+    t.string   "password"
+    t.integer  "tweet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

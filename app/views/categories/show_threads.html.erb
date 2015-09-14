@@ -1,0 +1,16 @@
+<br>
+<br>
+
+スレッド一覧
+<% @threads.reverse_each do |t| %>
+<div id="tweet">
+    <% if @category_id == nil %> 
+        <% @category_id = t.category.id %> 
+    <% end %> 
+    <% link_name = "#{@category_id}/show_tweet/#{t.id}" %>
+    <h4><%= link_to "#{t.name}",link_name  %></h4>
+
+   tweets <%=t.tweets.size %> 
+    <p><%= t.created_at%></p>
+</div>
+<% end %>

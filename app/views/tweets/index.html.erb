@@ -1,18 +1,13 @@
-<html>
-<head>
-<title> saying </title>
-</head>
-<body>
 <br>
 <br>
+
 <div class="form-inline" role="form">
 <%= form_for Tweet.new do |f| %>
     <p id="input"><%= f.label :name %>
     <%= f.text_field :contributor,:style =>"height:13px", :class => "span2" %>
-    <!-- <p id="input2" class=""><%= f.text_field :title,:style=>"height:20px" %> -->
-
     <%= f.label :title %>
     <%= f.text_field :title,:style=>"height:20px" %>
+    <%= f.hidden_field :idd,:value=> 1 %>
 <%= f.submit "投稿" %></p>
 <% end %>
  <p><%= link_to "新着順", '/tweets/index' %>
@@ -33,5 +28,3 @@
     <%= link_to "delete", {:btn_id=> "delete", :id => tweet.id.to_i}, :method => :post %>
 </div>
 <% end %>
-</body>
-</html>

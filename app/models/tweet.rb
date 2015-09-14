@@ -5,6 +5,10 @@ class Tweet < ActiveRecord::Base
   # validates :email, presence:   true,
   #                   format:     { with: VALID_EMAIL_REGEX },
   #                   uniqueness: { case_sensitive: false }
+  
   has_secure_password
   validates :password, length: { minimum: 6 }
+  belongs_to :user
+  belongs_to :category
+  belongs_to :my_thread
 end

@@ -1,3 +1,4 @@
+require "pry"
 class TweetsController < ApplicationController
  attr_accessor :test, :user_id, :order
 
@@ -5,18 +6,25 @@ class TweetsController < ApplicationController
 #    
 #  end
 
+ #
+ # === 投稿を表示する
+ # カテゴリの指定がなければ、全部表示すうｒ
+ #
   def index
-    if @order == "iine"
-      @tweets = Tweet.order(count: :asc)
-      p "TTTTTTTTTTTTTT"
-    else
+    @user_id = params[:id]
+    @category_id = params[:category_id]
+    if @category_id == nil
       @tweets = Tweet.all
-
-      p "FFFFFFFFFFFFFF"
+    else
+      @tweets = Tweet.where(category_id: @category_id)
     end
-    @user_id = params[:user_id]
   end
 
+  
+
+  #
+  # === 人気順に表示
+  #
   def popularity
       @tweets = Tweet.order(count: :asc)
       render :action => 'index'
@@ -29,19 +37,34 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new
-    @tweet.title = params[:tweet][:title]
-    @tweet.contributor = params[:tweet][:contributor]
-    @tweet.content = params[:tweet][:content]
+    @tweet.title = params["tweet"]["title"]
+    @tweet.contributor = params["tweet"]["contributor"]
+    @tweet.content = params["tweet"]["content"]
     @tweet.count = 0 
     @tweet.password = "default"
     @tweet.password_confirmation = "default"
     # @tweet.user = @test 
+    user = User.find_by(id: params["tweet"]["user_id"])
+    @tweet.user= user
+    category = Category.find_by(id: params["tweet"]["category_id"])
+    @tweet.category= category
+    my_thread = MyThread.find_by(id: params["tweet"]["thread_id"])
+    p @tweet
+    @tweet.my_thread = my_thread
+
+    # @tweet.user_id << User.find_by(id: 1)
+  
+    p @tweet.user_id
+    # @tweet.user_id << params[:tweet][:idd]
+    # @tweet.categories << Category.find_by(id: params[:category_id])
+    # @tweet.category_id << Category.find_by(id: 1)
+    # @tweet.category.create()
     @tweet.save
     if params[:tweet][:test] != nil
       user = User.find(params[:tweet][:test])
       user.tweet.push(@tweet)
     end
-    redirect_to '/tweets/index'
+    redirect_to '/'
   end
 
   def count
